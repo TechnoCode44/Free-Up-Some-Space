@@ -6,7 +6,7 @@ if __name__ == "__main__":
     print("Imported functions")
     from tkinter.filedialog import askdirectory
     print("Imported File explorer")
-    
+
     frame = Frames(60)
 
     print("Loaded!")
@@ -28,7 +28,7 @@ if __name__ == "__main__":
             sleep(1)
         elif answer == "2":
             drives = []
-            print("getting drives..")
+            print("Getting drives..")
             for drive in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 drive = f"{drive}:"
                 if exists(drive): drives.append(drive)
