@@ -15,13 +15,14 @@ def write(data, file, free_space):
 
 def cram_progress(DRIVE):
     last_free_space = 0
+    frame = Frames(60)
 
     while True:
         disk_space = disk_usage(DRIVE)
         free_space = round(disk_space[1] / disk_space[0] * 100, 3)
 
         if not last_free_space == free_space:
-            clear()
+            frame.clear()
             print(f"Complete: {free_space}%    Free space: {size_format(disk_space[2])}    Total: {size_format(disk_space[0])}    Used: {size_format(disk_space[1])}")
 
         if disk_space[2] <= 1024:
@@ -37,6 +38,7 @@ def cram(DRIVE): # Deletes permenantly deleted files
     FREE_SPACE = disk_usage(DRIVE)[2] # Gets free space in bytes
     BINARY = "1" * 1048576 # 1gb of data
     threads = []
+    frame = Frames(60)
 
     print(f"Found {size_format(round(FREE_SPACE))} on the drive {DRIVE[0]}")
 
@@ -49,14 +51,14 @@ def cram(DRIVE): # Deletes permenantly deleted files
 
     print("Finishing up..")
     popen(f"cipher /w:{DRIVE}")
-    clear()
+    frame.clear()
 
     print("Cleaning up...")
     files_removed = 0
     for file_num in range(50):
         files_removed += 1
         remove(BIG_FILE.format(DRIVE, file_num))
-        clear()
+        frame.clear()
         print(f"Removed: {files_removed}/50 files")
     
     print("Done!!")
