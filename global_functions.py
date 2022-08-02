@@ -1,4 +1,4 @@
-from os import system
+from os import system, popen
 from time import time, sleep
 
 class Frames:
