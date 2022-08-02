@@ -34,7 +34,7 @@ if __name__ == "__main__":
                 if exists(drive): drives.append(drive)
             
             frame.clear()
-            print(f"What drive would you like to use?\n{''.join(drives)}")
+            print(f"What drive would you like to use?\nAvailable: {' '.join(drives)}")
             cram(input("> ").capitalize())
         elif answer == "exit":
             print("See you soon")
