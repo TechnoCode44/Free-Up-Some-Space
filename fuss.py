@@ -1,13 +1,14 @@
-print("Loading..")
-from scan import *
-from global_functions import *
-from cram import *
-print("Imported functions")
-from tkinter.filedialog import askdirectory
-print("Imported File explorer")
-
-frame = Frames(60)
 if __name__ == "__main__":
+    print("Loading..")
+    from scan import *
+    from global_functions import *
+    from cram import *
+    print("Imported functions")
+    from tkinter.filedialog import askdirectory
+    print("Imported File explorer")
+    
+    frame = Frames(60)
+
     print("Loaded!")
     while True:
         frame.clear()
