@@ -28,7 +28,7 @@ if __name__ == "__main__":
             sleep(1)
         elif answer == "2":
             drives = []
-            print("Getting drives..")
+            print("\033[32m[Getting drives]\033[0m")
             for drive in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 drive = f"{drive}:"
                 if exists(drive): drives.append(drive)
