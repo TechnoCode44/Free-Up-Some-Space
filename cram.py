@@ -53,12 +53,12 @@ def cram(DRIVE): # Deletes permenantly deleted files
     popen(f"cipher /w:{DRIVE}")
     frame.clear()
 
-    print("\033[32m[Cleaning up]\033[0m")
     files_removed = 0
     for file_num in range(50):
         files_removed += 1
         remove(BIG_FILE.format(DRIVE, file_num))
         frame.clear()
-        print(f"Removed: {files_removed}/50 files")
+        print("\033[32m[Cleaning up]\033[0m")
+        print("\033[32m[Progress]\033[0m Removed: {}/50 files".format(files_removed))
     
     print("\033[32m[Done]\033[0m")
