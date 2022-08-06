@@ -41,5 +41,5 @@ if __name__ == "__main__":
             sleep(0.5)
             exit()
         else:
-            print("Sorry I don't understand that :(")
+            print("\033[31mSorry I don't understand that :(\033[0m")
             sleep(1)
