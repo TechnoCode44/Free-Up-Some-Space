@@ -1,11 +1,11 @@
 if __name__ == "__main__":
-    print("Loading..")
+    print("[Loading]")
     from scan import *
     from global_functions import *
     from cram import *
-    print("Imported functions")
+    print("[Imported functions]")
     from tkinter.filedialog import askdirectory
-    print("Imported File explorer")
+    print("[Imported File explorer gui]")
 
     frame = Frames(60)
 
