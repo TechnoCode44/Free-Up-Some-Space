@@ -30,11 +30,14 @@ def get_info(path, sort):
     print("\033[32m[Getting File Information]\033[0m")
     for file in files:
         # We sort the size variable in the dict so it will sort the paths aswell
-        files_info.append({
-            "path": file,
-            "size": getsize(file),
-            "last_used": getmtime(file)
-        })
+        if not len(file) >= 255:
+            files_info.append({
+                "path": file,
+                "size": getsize(file),
+                "last_used": getmtime(file)
+            })
+        else:
+            print('\033[31m[Error] The path "{}" is to big of a path to scan\033[0m'.format(file))
 
     """
     The sort function iterates over the array and we can give it a
