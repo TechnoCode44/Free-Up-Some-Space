@@ -37,7 +37,7 @@ if __name__ == "__main__":
             print(f"\033[1mWhat drive would you like to use?\033[0m\nAvailable: {' '.join(drives)}")
             cram(input("> ").capitalize())
         elif answer == "exit":
-            print("See you soon")
+            print("\033[96mSee you soon \033[3;1;6m\(^▼^)/\033[0m")
             sleep(0.5)
             exit()
         else:
