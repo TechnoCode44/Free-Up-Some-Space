@@ -14,7 +14,7 @@ if __name__ == "__main__":
         frame.clear()
         print("""\033[93;6mver: 1.0\033[0m
 
-        How can Free up some space help you?
+        \033[1mHow can Free up some space help you?\033[0m
         
         1. Find the biggest files in a specific folder
         2. Delete permanently deleted files""")
@@ -34,7 +34,7 @@ if __name__ == "__main__":
                 if exists(drive): drives.append(drive)
             
             frame.clear()
-            print(f"What drive would you like to use?\nAvailable: {' '.join(drives)}")
+            print(f"\033[1mWhat drive would you like to use?\033[0m\nAvailable: {' '.join(drives)}")
             cram(input("> ").capitalize())
         elif answer == "exit":
             print("See you soon")
