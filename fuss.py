@@ -1,15 +1,15 @@
 if __name__ == "__main__":
-    print("[Loading]")
+    print("\033[32;1;6m[Loading]\033[0m")
     from scan import *
     from global_functions import *
     from cram import *
-    print("[Imported functions]")
+    print("\033[32m[Imported functions]\033[0m")
     from tkinter.filedialog import askdirectory
-    print("[Imported File explorer gui]")
+    print("\033[32m[Imported File explorer gui]\033[0m")
 
     frame = Frames(60)
 
-    print("Loaded!")
+    print("\033[32;1;6m[Loaded!]\033[0m")
     while True:
         frame.clear()
         print("""\033[93;6mver: 1.0\033[0m
