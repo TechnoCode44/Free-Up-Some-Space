@@ -12,7 +12,7 @@ if __name__ == "__main__":
     print("Loaded!")
     while True:
         frame.clear()
-        print("""ver: 1.0
+        print("""\033[93;6mver: 1.0\033[0m
 
         How can Free up some space help you?
         
