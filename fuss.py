@@ -3,6 +3,7 @@ if __name__ == "__main__":
     from scan import *
     from global_functions import *
     from cram import *
+    from sys import exit
     print("Imported functions")
     from tkinter.filedialog import askdirectory
     print("Imported File explorer")
