@@ -39,7 +39,7 @@ if __name__ == "__main__":
             cram(input("> ").capitalize())
         elif answer == "exit":
             print("See you soon")
-            sleep(0.5)
+            sleep(1)
             exit()
         else:
             print("Sorry I don't understand that :(")
