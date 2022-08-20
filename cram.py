@@ -23,7 +23,7 @@ def cram_progress(DRIVE):
 
         if not last_free_space == free_space:
             frame.clear()
-            print(f"Complete: {free_space}%    Free space: {size_format(disk_space[2])}    Total: {size_format(disk_space[0])}    Used: {size_format(disk_space[1])}")
+            print("\033[22;39mComplete: \033[1;92m{}%   \033[22;39m Free space: \033[1;92m{}   \033[22;39m Total: \033[1;92m{}   \033[22;39m Used: \033[1;92m{}".format(free_space, size_format(disk_space[2]), size_format(disk_space[0]), size_format(disk_space[1])))
 
         if disk_space[2] <= 1024:
             print("\033[32m[Completed!]\033[0m")
