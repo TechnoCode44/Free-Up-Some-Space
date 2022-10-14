@@ -16,8 +16,8 @@ if __name__ == "__main__":
 
         \033[1mHow can Free up some space help you?\033[0m
         
-        1. Find the biggest files in a specific folder
-        2. Delete permanently deleted files""")
+        \033[3m1\033[23m    Find the biggest files in a specific folder
+        \033[3m2\033[23m    Delete permanently deleted files""")
         answer = input(" > ")
         frame.clear()
         if answer == "1":
