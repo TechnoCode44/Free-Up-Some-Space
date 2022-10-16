@@ -18,8 +18,8 @@ Then on **Windows** run the batch file under <code>scripts/install.bat</code>
 
 Or on **Linux/Mac** run the following in the terminal
 
-<code> pip3 install tkinter.filedialog
+<code> pip3 install tk </code>
 
-pip3 install openpyxl </code>
+<code> pip3 install openpyxl </code>
 
 The latest version of Python is recomended but older version from 3.6 and above should be fine (although this is not tested).
