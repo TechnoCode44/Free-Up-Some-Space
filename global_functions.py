@@ -1,21 +1,30 @@
 from os import system, popen
 from time import time, sleep
+from sys import exit, platform
+
+WIN = ["win32", "cygwin", "msys"]
+LINUX = ["linux", "linux2"]
+if platform in WIN: OS = "win"
+elif platform in LINUX: OS = "linux"
 
 class Frames:
     def __init__(self, fps):
         self.fps = fps
         self.frame_time = 1 / self.fps
         self.last_frame_time = 0
+        
+        if OS == "win": self.clear_command = "cls"
+        elif OS == "linux": self.clear_command = "clear"
     
     def refresh(self): # For timed refresh of frames
         self.refreshed = False
         while not self.refreshed:
             if self.last_frame_time > self.frame_time:
-                system("cls")
+                system(self.clear_command)
                 self.last_frame_time = time()
                 self.refreshed = True
     
-    def clear(self): system("cls") # For untimed refresh of frames
+    def clear(self): system(self.clear_command) # For untimed refresh of frames
 
 
 # We get sizes in bytes
