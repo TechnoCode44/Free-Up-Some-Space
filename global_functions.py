@@ -1,11 +1,16 @@
-from os import system, popen
+from os import system, popen, getlogin
 from time import time, sleep
 from sys import exit, platform
 
+# Detects operating system and assigns variables depending on OS
 WIN = ["win32", "cygwin", "msys"]
 LINUX = ["linux", "linux2"]
-if platform in WIN: OS = "win"
-elif platform in LINUX: OS = "linux"
+if platform in WIN:
+    OS = "win"
+    DESKTOP_PATH = f"C:/Users/{getlogin()}/Desktop/"
+elif platform in LINUX:
+    OS = "linux"
+    DESKTOP_PATH = f"/home/{getlogin()}/Desktop/"
 
 class Frames:
     def __init__(self, fps):
