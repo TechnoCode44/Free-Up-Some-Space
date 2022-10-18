@@ -1,24 +1,24 @@
 if __name__ == "__main__":
-    print("Loading..")
+    print("\033[32;1;6m[Loading]\033[0m")
     from scan import *
     from global_functions import *
     from cram import *
     from sys import exit
-    print("Imported functions")
+    print("\033[32m[Imported functions]\033[0m")
     from tkinter.filedialog import askdirectory
-    print("Imported File explorer")
+    print("\033[32m[Imported File explorer gui]\033[0m")
 
     frame = Frames(60)
 
-    print("Loaded!")
+    print("\033[32;1;6m[Loaded!]\033[0m")
     while True:
         frame.clear()
-        print("""ver: 1.0
+        print("""\033[93;6mver: 1.0\033[0m
 
-        How can Free up some space help you?
+        \033[1mHow can Free up some space help you?\033[0m
         
-        1. Find the biggest files in a specific folder
-        2. Delete permanently deleted files""")
+        \033[3m1\033[23m    Find the biggest files in a specific folder
+        \033[3m2\033[23m    Delete permanently deleted files""")
         answer = input(" > ")
         frame.clear()
         if answer == "1":
@@ -29,18 +29,18 @@ if __name__ == "__main__":
             sleep(1)
         elif answer == "2":
             drives = []
-            print("Getting drives..")
+            print("\033[32m[Getting drives]\033[0m")
             for drive in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 drive = f"{drive}:"
                 if exists(drive): drives.append(drive)
             
             frame.clear()
-            print(f"What drive would you like to use?\nAvailable: {' '.join(drives)}")
+            print(f"\033[1mWhat drive would you like to use?\033[0m\nAvailable: {' '.join(drives)}")
             cram(input("> ").capitalize())
         elif answer == "exit":
-            print("See you soon")
+            print("\033[96mSee you soon \033[3;1;6m\(^▼^)/\033[0m")
             sleep(1)
             exit()
         else:
-            print("Sorry I don't understand that :(")
+            print("\033[31mSorry I don't understand that :(\033[0m")
             sleep(1)
