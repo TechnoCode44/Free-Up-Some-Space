@@ -40,7 +40,7 @@ if __name__ == "__main__":
         elif answer == "exit":
             print("\033[96mSee you soon \033[3;1;6m\(^▼^)/\033[0m")
             sleep(1)
-            exit()
+            exit(0)
         else:
             print("\033[31mSorry I don't understand that :(\033[0m")
             sleep(1)
