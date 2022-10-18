@@ -1,4 +1,4 @@
-from os import walk, getlogin
+from os import walk
 from os.path import join, getsize, getmtime
 from time import strftime, gmtime
 from global_functions import *
@@ -12,7 +12,7 @@ def log(file_info): # Creates a excel spreedsheet
         sheet[f"A{data + 1}"] = file_info[0][data]
         sheet[f"B{data + 1}"] = file_info[1][data]
         sheet[f"C{data + 1}"] = file_info[2][data]
-    workbook.save(filename=f"C:/Users/{getlogin()}/Desktop/log.xlsx")
+    workbook.save(filename=f"{DESKTOP_PATH}/log.xlsx")
     print("\033[32m[Created Log File On Desktop]\033[0m")
     
 
