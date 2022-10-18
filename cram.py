@@ -50,7 +50,6 @@ def cram(DRIVE): # Deletes permenantly deleted files
     for thread in threads: thread.join()
 
     print("Finishing up..")
-    popen(f"cipher /w:{DRIVE}")
     frame.clear()
 
     print("Cleaning up...")
