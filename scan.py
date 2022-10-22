@@ -31,11 +31,14 @@ def get_info(path, sort):
     for file in files:
         # We sort the size variable in the dict so it will sort the paths aswell
         if not len(file) >= 255:
-            files_info.append({
-                "path": file,
-                "size": getsize(file),
-                "last_used": getmtime(file)
-            })
+            try:
+                files_info.append({
+                    "path": file,
+                    "size": getsize(file),
+                    "last_used": getmtime(file)
+                })
+            except FileNotFoundError:
+                print(f'    \033[31m[File Not Found]    "{file}"\033[0m')
         else:
             print('\033[31m[Error] The path "{}" is to big of a path to scan\033[0m'.format(file))
 
