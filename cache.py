@@ -1,4 +1,4 @@
-from json import dump
+from json import dump, load
 
 def save_file_paths(files: list):
     with open("cache/files.cache", "w") as cache_file:
@@ -16,3 +16,8 @@ def save_file_data(file_data: list): # Function name needs to be plural
 
     with open(f"cache/file_data.cache", "w", encoding="utf-8") as cache_file:
         dump(file_data, cache_file, ensure_ascii=False, indent=4)
+
+def load_file_data():
+    cache_file = open("cache/file_data.cache")
+    file_data = load(cache_file)
+    return file_data
