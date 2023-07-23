@@ -1,7 +1,7 @@
 from os import walk
 from os.path import join, getsize, getmtime, getatime
 
-def get_files_in_directory(directory_path):
+def get_files_in_directory(directory_path: str):
     file_paths = []
 
     for current_directory, sub_directories, files_in_directory in walk(directory_path):
@@ -12,7 +12,7 @@ def get_files_in_directory(directory_path):
     
     return file_paths
 
-def get_file_data(file):
+def get_file_data(file: str):
     file_size = getsize(file)
     file_last_modification_time = getmtime(file)
     file_last_access_time = getatime(file)
@@ -22,3 +22,4 @@ def get_file_data(file):
         "Access Time": file_last_access_time
     }
     return file_data
+
