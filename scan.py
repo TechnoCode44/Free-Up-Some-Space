@@ -12,11 +12,12 @@ def get_files_in_directory(directory_path: str):
     
     return file_paths
 
-def get_file_data(file: str):
-    file_size = getsize(file)
-    file_last_modification_time = getmtime(file)
-    file_last_access_time = getatime(file)
+def get_file_data(file_path: str):
+    file_size = getsize(file_path)
+    file_last_modification_time = getmtime(file_path)
+    file_last_access_time = getatime(file_path)
     file_data = {
+        "File Path": file_path,
         "Size": file_size,
         "Modification Time": file_last_modification_time,
         "Access Time": file_last_access_time
