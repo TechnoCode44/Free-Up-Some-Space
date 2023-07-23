@@ -1,5 +1,5 @@
 from os import walk
-from os.path import join, getsize, getmtime, getatime
+from os.path import join, getsize, getmtime, getatime, isfile
 
 def get_files_in_directory(directory_path: str):
     file_paths = []
@@ -8,7 +8,10 @@ def get_files_in_directory(directory_path: str):
         if len(files_in_directory) > 0:
             for file in files_in_directory:
                 file_path = join(current_directory, file)
-                file_paths.append(file_path)
+                
+                file_exists = isfile(file_path) # Computers like hallucinating???
+                if file_exists:
+                    file_paths.append(file_path)
     
     return file_paths
 
