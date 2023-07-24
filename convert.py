@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def bytes_to_string(size: int, short_string: bool = False):
     unit_number = 0
 
@@ -20,3 +22,9 @@ def bytes_to_string(size: int, short_string: bool = False):
     size_string = f"{size_rounded} {unit}"
 
     return size_string
+
+def seconds_to_date(time_in_seconds, time_format: str = "%a %d %b %Y"):
+    time_object = datetime.fromtimestamp(time_in_seconds)
+    time_string = time_object.strftime(time_format)
+
+    return time_string
