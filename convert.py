@@ -14,7 +14,7 @@ def bytes_to_string(size: int, short_string: bool = False):
         else:
             unit = unit_strings[unit_number]
     else:
-        unit = "ERRORR"
+        unit = "ERROR"
     
     size_rounded = round(size, 1)
     size_string = f"{size_rounded} {unit}"
