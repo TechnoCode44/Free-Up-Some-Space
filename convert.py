@@ -1,4 +1,4 @@
-def bytes_to_string(size):
+def bytes_to_string(size: int, short_string: bool = False):
     unit_number = 0
 
     while size > 1024:
@@ -6,9 +6,13 @@ def bytes_to_string(size):
         unit_number += 1
     
     unit_strings = ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Petabytes"]
+    unit_strings_short = ["B", "KB", "MB", "GB", "TB", "PB"]
     
     if unit_number < len(unit_strings):
-        unit = unit_strings[unit_number]
+        if short_string:
+            unit = unit_strings_short[unit_number]
+        else:
+            unit = unit_strings[unit_number]
     else:
         unit = "ERRORR"
     
