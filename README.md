@@ -49,3 +49,70 @@ The `bytes_to_string` function takes an interger in bytes and returns the conver
 bytes_to_string(2048) # 2 Kilobytes
 bytes_to_string(4096, True) # 4 KB
 ```
+
+---
+
+## Cache sub-module
+
+This sub-module contains functions that help cache data used in the program to improve load times.
+
+### Saving & Loading file paths
+
+You can use the `save_file_paths` function to save file paths. And the `load_file_paths` function to load file paths.
+
+```python
+foo = ["/bar/foo.py", "/foo/bar.sh", "/hi/bye.txt"]
+
+save_file_paths(foo) # Saves to "cache/files.cache"
+load_file_paths() # ["bar/foo.py", "foo/bar.sh", "hi/bye.txt"]
+```
+
+### Saving & Loading file data
+
+You can use the `save_file_data` function to save file metadata. And the `load_file_data` function to load file metadata.
+
+```python
+file_data = [
+    {
+        "File Path": "/bar/foo.py",
+        "Size": 3246369,
+        "Modification Time": 1483129319.727746,
+        "Access Time": 1688678899.6798375
+    },
+    {
+        "File Path": "/foo/bar.sh",
+        "Size": 47791053,
+        "Modification Time": 1689706553.113796,
+        "Access Time": 1689706532.781569
+    },
+    {
+        "File Path": "/hi/bye.txt",
+        "Size": 23,
+        "Modification Time": 1672352802.3541133,
+        "Access Time": 1688678899.559835
+    },
+]
+
+save_file_data(file_data) # Saves to "file_data.cache"
+load_file_data() # [
+    {
+        "File Path": "/bar/foo.py",
+        "Size": 3246369,
+        "Modification Time": 1483129319.727746,
+        "Access Time": 1688678899.6798375
+    },
+    {
+        "File Path": "/foo/bar.sh",
+        "Size": 47791053,
+        "Modification Time": 1689706553.113796,
+        "Access Time": 1689706532.781569
+    },
+    {
+        "File Path": "/hi/bye.txt",
+        "Size": 23,
+        "Modification Time": 1672352802.3541133,
+        "Access Time": 1688678899.559835
+    },
+]
+
+```
