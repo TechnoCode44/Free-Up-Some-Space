@@ -21,20 +21,17 @@ Metadata includes:
 - Modification Time
 - Access Time
 
----
+### get_metadata_from_files function
 
-Both functions can be used to get all the metadata from a directory
+The `get_metadata_from_files` function is used to get the metadata from a list of files. This can be useful for getting all the metadata from a directory
 
 ```python
 directory = "foo"
 file_paths = get_files_in_directory(directory)
 
-files_data = []
-for file in file_paths:
-    file_data = get_metadata_from_file(file)
-    files_data.append(file_data)
+directory_metadata = get_metadata_from_files(file_paths)
 
-print(file_data) # All metadata in the directory
+print(directory_metadata) # All metadata in the directory
 ```
 
 ## Convert sub-module
