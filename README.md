@@ -10,9 +10,9 @@ This module contains functions used for scanning directories for information.
 
 The `get_files_in_directory` function is used to get all of the files in the directory and sub-directories. It takes one parameter of the  `directory path` and returns a list of `file paths`.
 
-### get_file_data function
+### get_metadata_from_file function
 
-The `get_file_data` function is used to get metadata of a file. It takes the file path as a parameter and returns and dictionary of metadata.
+The `get_metadata_from_file` function is used to get metadata of a file. It takes the file path as a parameter and returns and dictionary of metadata.
 
 Metadata includes:
 
@@ -31,7 +31,7 @@ file_paths = get_files_in_directory(directory)
 
 files_data = []
 for file in file_paths:
-    file_data = get_file_data(file)
+    file_data = get_metadata_from_file(file)
     files_data.append(file_data)
 
 print(file_data) # All metadata in the directory
