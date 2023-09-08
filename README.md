@@ -10,9 +10,9 @@ This module contains functions used for scanning directories for information.
 
 The `get_files_in_directory` function is used to get all of the files in the directory and sub-directories. It takes one parameter of the  `directory path` and returns a list of `file paths`.
 
-### get_file_data function
+### get_metadata_from_file function
 
-The `get_file_data` function is used to get metadata of a file. It takes the file path as a parameter and returns and dictionary of metadata.
+The `get_metadata_from_file` function is used to get metadata of a file. It takes the file path as a parameter and returns and dictionary of metadata.
 
 Metadata includes:
 
@@ -21,20 +21,17 @@ Metadata includes:
 - Modification Time
 - Access Time
 
----
+### get_metadata_from_files function
 
-Both functions can be used to get all the metadata from a directory
+The `get_metadata_from_files` function is used to get the metadata from a list of files. This can be useful for getting all the metadata from a directory
 
 ```python
 directory = "foo"
 file_paths = get_files_in_directory(directory)
 
-files_data = []
-for file in file_paths:
-    file_data = get_file_data(file)
-    files_data.append(file_data)
+directory_metadata = get_metadata_from_files(file_paths)
 
-print(file_data) # All metadata in the directory
+print(directory_metadata) # All metadata in the directory
 ```
 
 ## Convert sub-module
@@ -58,23 +55,25 @@ This sub-module contains functions that help cache data used in the program to i
 
 ### Saving & Loading file paths
 
-You can use the `save_file_paths` function to save file paths. And the `load_file_paths` function to load file paths.
+You can use the `save_file_paths` function to save file paths. And the `load_file_paths` function to load file paths. They take the `directory path` as a prameter so you can cache multiple directories.
 
 ```python
-foo = ["/bar/foo.py", "/foo/bar.sh", "/hi/bye.txt"]
+directory = "/"
+foo = ["/foo/bar/foo.py", "/foo/bar.sh", "/foo/hi/bye.txt"]
 
-save_file_paths(foo) # Saves to "cache/files.cache"
-load_file_paths() # ["bar/foo.py", "foo/bar.sh", "hi/bye.txt"]
+save_file_paths(foo, directory) # Saves to "cache/-foo/files.cache"
+load_file_paths(directory) # ["bar/foo.py", "foo/bar.sh", "hi/bye.txt"]
 ```
 
 ### Saving & Loading file data
 
-You can use the `save_file_data` function to save file metadata. And the `load_file_data` function to load file metadata.
+You can use the `save_file_data` function to save file metadata. And the `load_file_data` function to load file metadata. They take the `directory path` as a prameter so you can cache multiple directories.
 
 ```python
+directory = "/foo"
 file_data = [
     {
-        "File Path": "/bar/foo.py",
+        "File Path": "/foo/bar/foo.py",
         "Size": 3246369,
         "Modification Time": 1483129319.727746,
         "Access Time": 1688678899.6798375
@@ -86,33 +85,15 @@ file_data = [
         "Access Time": 1689706532.781569
     },
     {
-        "File Path": "/hi/bye.txt",
+        "File Path": "/foo/hi/bye.txt",
         "Size": 23,
         "Modification Time": 1672352802.3541133,
         "Access Time": 1688678899.559835
     },
 ]
 
-save_file_data(file_data) # Saves to "file_data.cache"
-load_file_data() # [
-    {
-        "File Path": "/bar/foo.py",
-        "Size": 3246369,
-        "Modification Time": 1483129319.727746,
-        "Access Time": 1688678899.6798375
-    },
-    {
-        "File Path": "/foo/bar.sh",
-        "Size": 47791053,
-        "Modification Time": 1689706553.113796,
-        "Access Time": 1689706532.781569
-    },
-    {
-        "File Path": "/hi/bye.txt",
-        "Size": 23,
-        "Modification Time": 1672352802.3541133,
-        "Access Time": 1688678899.559835
-    },
-]
+save_file_data(file_data, directory) # Saves to "cache/-foo/file_data.cache"
+loaded_file_data = load_file_data(directory) 
+file_data == loaded_file_data # True
 
 ```
